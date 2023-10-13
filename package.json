@@ -1,0 +1,16 @@
+{
+  "name": "bubujka-paginator3000",
+  "version": "1.0.0",
+  "description": "paginator3000\r =============",
+  "main": "paginator3000.js",
+  "scripts": {
+    "start": "php -S 0.0.0.0:3000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.najomi.org:bubujka/paginator3000.git"
+  },
+  "author": "",
+  "license": "ISC"
+}

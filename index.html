@@ -13,19 +13,37 @@
 	<div class="paginator" id="paginator1"></div>
 	<div class="paginator_pages">1024 pages</div>
 	<script type="text/javascript">
-		pag1 = new Paginator('paginator1', 1024, 10, 300, "");
+    pag1 = new Paginator({
+       selector: document.querySelector('#paginator1'),
+       pagesTotal: 1024,
+       pagesSpan: 10,
+       pageCurrent: 300,
+       baseUrl: ""
+    });
 	</script>
 
 	<div class="paginator" id="paginator2"></div>
 	<div class="paginator_pages">100 pages</div>
 	<script type="text/javascript">
-		pag2 = new Paginator('paginator2', 100, 13, 70, "");
+    pag2 = new Paginator({
+       selector: document.querySelector('#paginator2'),
+       pagesTotal: 100,
+       pagesSpan: 13,
+       pageCurrent: 70,
+       baseUrl: ""
+    });
 	</script>
 
 	<div class="paginator" id="paginator3"></div>
 	<div class="paginator_pages">25 pages</div>
 	<script type="text/javascript">
-		pag3 = new Paginator('paginator3', 50, 15, 15, "");
+    pag3 = new Paginator({
+       selector: document.querySelector('#paginator3'),
+       pagesTotal: 50,
+       pagesSpan: 15,
+       pageCurrent: 15,
+       baseUrl: ""
+    });
 	</script>
 
 </body>
