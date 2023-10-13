@@ -28,7 +28,11 @@ var Paginator = function(config){
    if(!config.selector || !config.pagesTotal || !config.pagesSpan) return false;
 
    config.pagesSpan = config.pagesSpan < config.pagesTotal ? config.pagesSpan : config.pagesTotal;
-  config.baseUrl = config.baseUrl ? config.baseUrl : '/pages/';
+   config.baseUrl = config.baseUrl ? config.baseUrl : '/pages/';
+   config.theme = config.theme ? config.theme : 'karaboz';
+
+   config.selector.classList.add('paginator')
+   config.selector.classList.add('paginator--'+config.theme)
 
    this.inputData = config;
 
