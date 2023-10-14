@@ -2,6 +2,7 @@
   --p3000-font-size: 1em;
   --p3000-active-bg: #ff6c24;
   --p3000-scroll-height: 10px;
+  --p3000-knob-size: 20px;
 }
 
 .paginator {
@@ -57,10 +58,11 @@
 }
 .paginator .scroll_knob {
   position:absolute;
-  top:-5px; left:50%;
+  top:-5px;
+  left:50%;
   margin-left:-10px;
-  width:20px;
-  height:20px;
+  width:  var(--p3000-knob-size);
+  height: var(--p3000-knob-size);
   overflow:hidden;
   background: url(slider_knob.gif) no-repeat 50% 50%;
   cursor:pointer;
