@@ -1,38 +1,15 @@
-/*
-  Paginator 3000
-  - idea by ecto (ecto.ru)
-  - coded by karaboz (karaboz.ru)
-
-  HTML example
-  <div class="paginator" id="paginator_example">
-    <table>
-      <tr>
-        <td><span><strong>1</strong></span></td>
-        ...
-        <td><span><a href="">3000</a></span></td>
-      </tr>
-      <tr>
-        <td colspan="">
-          <div class="scroll_bar">
-            <div class="scroll_trough"></div>
-            <div class="scroll_thumb">
-              <div class="scroll_knob"></div>
-            </div>
-            <div class="current_page_mark"></div>
-          </div>
-        </td>
-
-      </tr>
-    </table>
-  </div>
-*/
 .paginator--karaboz{
+  --p3000-font-size: 1em;
+  --p3000-active-bg: #ff6c24;
+  --p3000-scroll-height: 10px;
 }
+
 .paginator {
   margin-top:60px;
-  font-size:1em;
-  width:600px;
+  font-size: var(--p3000-font-size, 1em);
+  width: 100%;
 }
+
 .paginator table {
   border-collapse:collapse;
   table-layout:fixed;
@@ -53,7 +30,7 @@
   padding:2px 6px;
 }
 .paginator span strong {
-  background:#ff6c24;
+  background: var(--p3000-active-bg);
   font-style:normal;
   font-weight:normal;
 }
@@ -63,34 +40,38 @@
   margin-top:10px;
 }
 .paginator .scroll_trough {
-  width:100%;  height:3px;
+  width:100%;
+  height: var(--p3000-scroll-height);
   background:#ccc;
   overflow:hidden;
 }
 .paginator .scroll_thumb {
   position:absolute;
   z-index:2;
-  width:0; height:3px;
+  width:0;
+  height: var(--p3000-scroll-height);
   top:0; left:0;
   font-size:1px;
-  background:#363636;
+  background: rgba(36,36,36, 0.2);
+  cursor:pointer;
 }
 .paginator .scroll_knob {
   position:absolute;
   top:-5px; left:50%;
   margin-left:-10px;
-  width:20px; height:20px;
+  width:20px;
+  height:20px;
   overflow:hidden;
-  background:url(slider_knob.gif) no-repeat 50% 50%;
-  cursor:pointer; cursor:hand;
+  background: url(slider_knob.gif) no-repeat 50% 50%;
+  cursor:pointer;
 }
 .paginator .current_page_mark {
   position:absolute;
   z-index:1;
   top:0; left:0;
-  width:0; height:3px;
+  width:0; height: var(--p3000-scroll-height);
   overflow:hidden;
-  background:#ff6c24;
+  background: var(--p3000-active-bg);
 }
 
 .fullsize .scroll_thumb {
