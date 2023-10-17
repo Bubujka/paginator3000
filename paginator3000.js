@@ -255,15 +255,15 @@ Paginator.prototype.drawPages = function(){
 
   for(var i=0; i<this.html.tdsPages.length; i++){
     var cellCurrentValue = cellFirstValue + i;
+    var linkClass = 'link';
     if(cellCurrentValue == this.inputData.pageCurrent){
-      html = "<span>" + "<strong>" + cellCurrentValue + "</strong>" + "</span>";
-    } else {
-            // if baseUrl is function
-            var url = (typeof this.inputData.baseUrl == 'function')
-                ? this.inputData.baseUrl(cellCurrentValue)
-                : this.inputData.baseUrl + cellCurrentValue;
-            html = "<span>" + "<a href='" + url + "'>" + cellCurrentValue + "</a>" + "</span>";
+      linkClass = 'link active'
     }
+    // if baseUrl is function
+    var url = (typeof this.inputData.baseUrl == 'function')
+        ? this.inputData.baseUrl(cellCurrentValue)
+        : this.inputData.baseUrl + cellCurrentValue;
+    html = "<span>" + "<a href='" + url + "' class='"+linkClass+"'>" + cellCurrentValue + "</a>" + "</span>";
     this.html.tdsPages[i].innerHTML = html;
   }
 }

@@ -1,14 +1,31 @@
 .paginator--karaboz{
   --p3000-font-size: 1em;
-  --p3000-active-bg: #ff6c24;
+  --p3000-active-bg: #E34BA0;
   --p3000-scroll-height: 10px;
   --p3000-knob-size: 20px;
+  --p3000-thumb-color: rgba(0,0,0, 0.2);;
+  --p3000-scroll-bg: rgba(0,0,0, 0.1);
+}
+.paginator--karaboz .link{
+  text-decoration: none;
+  color: #E34BA0;
+  font-weight: bold;
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+}
+.paginator--karaboz .active{
+  background: #E34BA0;
+  border-radius: 5px;
+  color: white;
 }
 
 .paginator {
-  margin-top:60px;
-  font-size: var(--p3000-font-size, 1em);
+  font-size: var(--p3000-font-size);
   width: 100%;
+  user-select: none;
 }
 
 .paginator table {
@@ -26,35 +43,31 @@
   padding:3px 0;
   color:#fff;
 }
-.paginator span strong,
-.paginator span a {
-  padding:2px 6px;
-}
-.paginator span strong {
-  background: var(--p3000-active-bg);
-  font-style:normal;
-  font-weight:normal;
-}
 .paginator .scroll_bar {
-  width:100%;  height:20px;
+  width:100%;
+  display: flex;
+  align-items: center;
+  height:20px;
+  cursor: pointer;
   position:relative;
-  margin-top:10px;
 }
 .paginator .scroll_trough {
   width:100%;
   height: var(--p3000-scroll-height);
-  background:#ccc;
+  background: var(--p3000-scroll-bg);
   overflow:hidden;
+  border-radius: 3px;
 }
 .paginator .scroll_thumb {
   position:absolute;
   z-index:2;
   width:0;
   height: var(--p3000-scroll-height);
-  top:0; left:0;
+  left:0;
   font-size:1px;
-  background: rgba(36,36,36, 0.2);
+  background: var(--p3000-thumb-color);
   cursor:pointer;
+  border-radius: 3px;
 }
 .paginator .scroll_knob {
   position:absolute;
@@ -66,12 +79,16 @@
   overflow:hidden;
   background: url(slider_knob.gif) no-repeat 50% 50%;
   cursor:pointer;
+  border-radius: 3px;
 }
 .paginator .current_page_mark {
   position:absolute;
-  z-index:1;
-  top:0; left:0;
-  width:0; height: var(--p3000-scroll-height);
+  z-index:3;
+  pointer-events: none;
+  left:0;
+  border-radius: 3px;
+  width:0;
+  height: var(--p3000-scroll-height);
   overflow:hidden;
   background: var(--p3000-active-bg);
 }
