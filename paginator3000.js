@@ -25,9 +25,20 @@
       http://www.yourwebsite.com/pages/1, http://www.yourwebsite.com/pages/2,  etc
 */
 var Paginator = function(config){
-   if(!config.selector || !config.pagesTotal || !config.pagesSpan) return false;
+   if(!config.selector || !config.pagesTotal) return false;
 
-   config.pagesSpan = config.pagesSpan < config.pagesTotal ? config.pagesSpan : config.pagesTotal;
+  var maybeSpan = config.pagesSpan;
+  if(config.pages){
+    var width = window.outerWidth;
+    for(var i in config.pages){
+      if(window.outerWidth < parseInt(i)){
+        maybeSpan = config.pages[i];
+        break;
+      }
+    }
+  }
+
+   config.pagesSpan = maybeSpan < config.pagesTotal ? maybeSpan : config.pagesTotal;
    config.baseUrl = config.baseUrl ? config.baseUrl : '/pages/';
    config.theme = config.theme ? config.theme : 'karaboz';
 

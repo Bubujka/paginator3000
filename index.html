@@ -39,7 +39,12 @@
     pag3 = new Paginator({
        selector: document.querySelector('#paginator3'),
        pagesTotal: 50,
-       pagesSpan: 15,
+       pagesSpan: 20,
+       pages: {
+         400: 7,
+         720: 10,
+         1024: 15
+       },
        pageCurrent: 15,
        baseUrl: ""
     });
