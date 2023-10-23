@@ -192,7 +192,33 @@ Paginator.prototype.movePageCurrentPoint = function(){
 */
 Paginator.prototype.initEvents = function(){
   var _this = this;
+  this.html.scrollThumb.addEventListener('touchstart', function(e){
+    if (!e) var e = window.event;
+    e.cancelBubble = true;
+    if (e.stopPropagation) e.stopPropagation();
 
+    var touch = e.touches[0] || e.changedTouches[0];
+    var x = touch.pageX;
+    var y = touch.pageY;
+    var dx = x - this.xPos;
+
+    let touchmove = function(e){
+        if (!e) var e = window.event;
+        var touch = e.touches[0] || e.changedTouches[0];
+        let x = touch.pageX;
+        _this.html.scrollThumb.xPos = x - dx;
+
+        // the first: draw pages, the second: move scrollThumb (it was logically but ie sucks!)
+        _this.moveScrollThumb();
+        _this.drawPages();
+
+    }
+
+    document.addEventListener('touchmove', touchmove);
+    document.addEventListener('touchend', function(){
+      document.removeEventListener('touchmove', touchmove);
+    });
+  });
   this.html.scrollThumb.onmousedown = function(e){
     if (!e) var e = window.event;
     e.cancelBubble = true;
@@ -211,9 +237,7 @@ Paginator.prototype.initEvents = function(){
     }
     document.onmouseup = function(){
       document.onmousemove = null;
-      _this.enableSelection();
     }
-    _this.disableSelection();
   }
 
   this.html.scrollBar.onmousedown = function(e){

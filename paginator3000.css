@@ -86,7 +86,6 @@
   z-index:3;
   pointer-events: none;
   left:0;
-  border-radius: 3px;
   width:0;
   height: var(--p3000-scroll-height);
   overflow:hidden;
