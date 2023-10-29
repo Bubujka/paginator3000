@@ -24,7 +24,7 @@
       if baseUrl is 'http://www.yourwebsite.com/pages/' the links on the pages will be:
       http://www.yourwebsite.com/pages/1, http://www.yourwebsite.com/pages/2,  etc
 */
-var Paginator = function(config){
+function Paginator(config){
    if(!config.selector || !config.pagesTotal) return false;
 
   var maybeSpan = config.pagesSpan;
@@ -113,7 +113,7 @@ Paginator.prototype.makePagesTableHtml = function(){
         '<div class="scroll_bar">' +
           '<div class="scroll_trough"></div>' +
           '<div class="scroll_thumb">' +
-            '<div class="scroll_knob"></div>' +
+        '<div class="scroll_knob"><div class="ph ph-caret-up"></div></div>' +
           '</div>' +
           '<div class="current_page_mark"></div>' +
         '</div>' +
@@ -431,3 +431,6 @@ function getMousePosition(e) {
   }
   return {x:posX, y:posY}
 }
+
+
+export default Paginator

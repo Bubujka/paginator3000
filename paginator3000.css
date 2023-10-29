@@ -9,12 +9,16 @@
 .paginator--karaboz .link{
   text-decoration: none;
   color: #E34BA0;
-  font-weight: bold;
   display: inline-flex;
   width: 40px;
   height: 40px;
   justify-content: center;
   align-items: center;
+  transition: 0.3s;
+}
+.paginator--karaboz .link:hover{
+  background: rgba(227, 75, 160, 0.3);
+  border-radius: 5px;
 }
 .paginator--karaboz .active{
   background: #E34BA0;
@@ -71,15 +75,24 @@
 }
 .paginator .scroll_knob {
   position:absolute;
-  top:-5px;
+  top:4px;
   left:50%;
   margin-left:-10px;
   width:  var(--p3000-knob-size);
   height: var(--p3000-knob-size);
-  overflow:hidden;
+
   background: transparent;
   cursor:pointer;
   border-radius: 3px;
+}
+.paginator .scroll_knob div{
+    font-size: 16px;
+    color :black;
+    width: 20px;
+    height: 20px;
+    position:absolute;
+    top: 5px;
+
 }
 .paginator .current_page_mark {
   position:absolute;
@@ -90,6 +103,7 @@
   height: var(--p3000-scroll-height);
   overflow:hidden;
   background: var(--p3000-active-bg);
+  border-radius: 3px;
 }
 
 .fullsize .scroll_thumb {
